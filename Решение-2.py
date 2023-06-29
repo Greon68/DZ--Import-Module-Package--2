@@ -123,6 +123,7 @@ create_tables(engine) # Создали таблицы
 Session = sessionmaker(bind=engine)
 session = Session()
 
+# ЗАПОЛНЯЕМ ТАБЛИЦЫ :
 # создание объектов
 # 1) Авторы
 author1 = Publisher(name='Пушкин')
@@ -218,6 +219,8 @@ session.add_all([sale1, sale2, sale3, sale4, sale5, sale6, sale7, sale8, sale9])
 session.add_all([sale9, sale10, sale11, sale12,sale13, sale14, sale15, sale16])
 session.add_all([sale17])
 session.commit() # фиксируем изменения
+
+# РЕШЕНИЕ ЗАДАЧИ :
 
 # Объединяем таблицы
 que = session.query(Book, Shop, Sale, Publisher).select_from(Publisher).\
